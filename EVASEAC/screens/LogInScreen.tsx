@@ -1,20 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
 import { Button, Text, View } from 'react-native';
-import NavProps from '../interfaces/Navigation';
+import { useNavigation } from "@react-navigation/native";
 import Styles from '../styles/Common';
 
-export default function LogInScreen(props: NavProps) {
+export default function LogInScreen() {
+    const navigation = useNavigation();
+
     return (
         <View style={Styles.container}>
             <StatusBar style="auto" />
             <Text>SplashScreen/LogIn screen</Text>
             <Button
                 title='Sign Up'
-                onPress={() => props.navigation.navigate('SignUp')}
+                onPress={() => navigation.navigate('SignUp')}
             />
             <Button
                 title='Home'
-                onPress={() => props.navigation.navigate('Home')}
+                onPress={() => navigation.navigate('Home')}
             />
         </View>
     );
